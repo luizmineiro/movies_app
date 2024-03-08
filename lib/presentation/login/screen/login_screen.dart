@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:movies_app/core/const/assets_path_const.dart';
 import 'package:movies_app/core/enums/sized_enum.dart';
 import 'package:movies_app/core/extensions/ui/sizes_extension.dart';
+import 'package:movies_app/core/inputs/text_form_field_widget.dart';
 import 'package:movies_app/core/mixin/loadin_error_mixin.dart';
 import 'package:movies_app/core/mixin/navigation_mixin.dart';
 import 'package:movies_app/core/mixin/snack_bar_mixin.dart';
@@ -68,7 +69,13 @@ class _LoginScreenState extends State<LoginScreen>
                   child: Lottie.asset(AssetsPathConst.animationLogin),
                 ),
                 const SizedBoxWidget.md(),
-                TextWidget.title("Firebase Movies App")
+                TextWidget.title("Firebase Movies App"),
+                const SizedBoxWidget.md(),
+                TextFormFieldWidget(
+                  inputLabel: 'Email',
+                  controller: TextEditingController(),
+                  focusNode: FocusNode(),
+                )
               ],
             ),
           ),
