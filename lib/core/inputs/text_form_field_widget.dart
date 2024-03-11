@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/config/firebase_movies_app_colors.dart';
 import 'package:movies_app/core/widgets/sized_box/sized_box_widget.dart';
 import 'package:movies_app/core/widgets/texts/text_widget.dart';
-import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 class TextFormFieldWidget extends StatefulWidget {
   final String inputLabel;
