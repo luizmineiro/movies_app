@@ -7,7 +7,7 @@ import 'package:movies_app/core/const/assets_path_const.dart';
 import 'package:movies_app/core/enums/sized_enum.dart';
 import 'package:movies_app/core/extensions/ui/sizes_extension.dart';
 import 'package:movies_app/core/inputs/text_form_field_widget.dart';
-import 'package:movies_app/core/mixin/loadin_error_mixin.dart';
+import 'package:movies_app/core/mixin/loading_error_mixin.dart';
 import 'package:movies_app/core/mixin/navigation_mixin.dart';
 import 'package:movies_app/core/mixin/snack_bar_mixin.dart';
 import 'package:movies_app/core/widgets/buttons/button_widget.dart';
@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen>
         LoginFocusNodesMixin,
         LoginTextEdittingControllerMixin,
         NavigationMixin,
-        LoadinErrorMixin,
+        LoadingErrorMixin,
         SnackBarMixin {
   late LoginController loginController;
   @override
@@ -72,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen>
       body: Form(
         key: loginController.loginFormKey,
         child: Padding(
-          padding: EdgeInsets.all(SizesEnum.lg.getSize),
+          padding: EdgeInsets.symmetric(horizontal: SizesEnum.lg.getSize),
           child: SizedBox.expand(
             child: SingleChildScrollView(
               child: Column(

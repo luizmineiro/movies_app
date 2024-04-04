@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-mixin LoadinErrorMixin<T extends StatefulWidget> on State<T> {
+mixin LoadingErrorMixin<T extends StatefulWidget> on State<T> {
   bool isLoading = true;
 
   String? errorMessage;
