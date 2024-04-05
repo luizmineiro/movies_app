@@ -5,7 +5,7 @@ mixin SignupTextEditingControllerMixin {
   final emailTEC = TextEditingController();
   final passwordTEC = TextEditingController();
 
-  void disposeTEC(){
+  void disposeTECs(){
     emailTEC.dispose();
     passwordTEC.dispose();
   }

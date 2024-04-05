@@ -44,7 +44,7 @@ class _SignupScreenState extends State<SignupScreen>
   @override
   void dispose() {
     disposeFN();
-    disposeTEC();
+    disposeTECs();
     super.dispose();
   }
 
