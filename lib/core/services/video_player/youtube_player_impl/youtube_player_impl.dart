@@ -9,7 +9,7 @@ class YoutubePlayerImpl implements IVideoPlayer<YoutubePlayerController>{
   YoutubePlayerImpl({required this.youtubePlayerCtrl});
 
   @override
-  get controller => youtubePlayerCtrl;
+  get getController => youtubePlayerCtrl;
 
   @override
   Future<void> load(String videoId, [bool loop = true]) {
