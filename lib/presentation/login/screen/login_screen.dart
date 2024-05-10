@@ -6,7 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:movies_app/core/const/assets_path_const.dart';
 import 'package:movies_app/core/enums/sized_enum.dart';
 import 'package:movies_app/core/extensions/ui/sizes_extension.dart';
-import 'package:movies_app/core/inputs/text_form_field_widget.dart';
+import 'package:movies_app/core/widgets/inputs/text_form_field_widget.dart';
 import 'package:movies_app/core/mixin/loading_error_mixin.dart';
 import 'package:movies_app/core/mixin/navigation_mixin.dart';
 import 'package:movies_app/core/mixin/snack_bar_mixin.dart';

@@ -12,6 +12,7 @@ import 'package:movies_app/presentation/nav/controllers/nav_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
+import '../movies_widget/movies_widget.dart';
 import 'nav_button_widget.dart';
 
 class NavScreenWidget extends StatefulWidget {
@@ -84,8 +85,8 @@ class _NavScreenWidgetState extends State<NavScreenWidget>
           Expanded(
             child: Stack(
               children: [
-                Center(
-                  child: TextWidget.normal("Movies"),
+                const Center(
+                  child: MoviesWidget(),
                 ),
                 if (navCtrl.navIndex == 1)
                   Center(
