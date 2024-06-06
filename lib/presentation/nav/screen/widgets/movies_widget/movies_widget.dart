@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 import '../../../../../core/widgets/others/error_with_button_widget/error_with_button_widget.dart';
+import 'movies_carousel_widget.dart';
 import 'movies_cinema_seats_image_widget.dart';
 import 'movies_youtube_player_video_widget.dart';
 
@@ -95,6 +96,12 @@ class _MoviesWidgetState extends State<MoviesWidget> with LoadingErrorMixin {
                   if (isLoading)
                     const Center(
                       child: CircularProgressIndicator(),
+                    ),
+                  if (!isLoading && navCtrl.movieList.isNotEmpty)
+                    MoviesCarouselWidget(
+                      currentPage: moviesWidgetCtrl.currentPage,
+                      isPortrait: isPortrait,
+                      moviesCarouselCtrl: _moviesCarouselCtrl,
                     ),
                 ],
               );
