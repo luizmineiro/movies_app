@@ -24,7 +24,7 @@ class NavScreen extends StatelessWidget {
           initialData: null,
         )
       ],
-      child: NavScreenWidget(),
+      child: const NavScreenWidget(),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:movies_app/core/const/erros_const.dart';
 import 'package:movies_app/core/services/dot_env_service.dart';
@@ -15,7 +17,9 @@ class DioRepositoryImpl implements IApiRepository {
       final response = await _dio.get(
         endPoint,
         options: Options(
-          headers: {"Authorization": "Bearer: ${DotEnvService.getApiToken}"},
+          headers: {
+            "Authorization": "Bearer ${DotEnvService.getApiToken}",
+          },
         ),
       );
       return (
@@ -25,6 +29,7 @@ class DioRepositoryImpl implements IApiRepository {
       );
     } on DioException catch (dioException) {
       final errorMessage = dioException.message ?? ErrosConst.API_DEFAULT_ERROR;
+      log(errorMessage);
       return (errorMessage, null);
     }
   }

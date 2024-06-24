@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:movies_app/core/const/assets_path_const.dart';
 import 'package:movies_app/core/enums/sized_enum.dart';
+import 'package:movies_app/core/extensions/ui/media_query_extesion.dart';
 import 'package:movies_app/core/extensions/ui/sizes_extension.dart';
 import 'package:movies_app/core/services/video_player/i_video_player.dart';
 import 'package:provider/provider.dart';
@@ -30,30 +33,37 @@ class MoviesCarouselWidget extends StatelessWidget {
           controller: moviesCarouselCtrl,
           itemBuilder: (_, index) {
             final selectedMovie = navCtrl.movieList[index];
+            final scale = 1 / ((index - currentPage).abs() + 1);
             return Align(
               alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(
-                  top: isPortrait ? 0 : 50,
-                  bottom: isPortrait ? SizesEnum.md.getSize : 50,
-                ),
-                child: InkWell(
-                  onTap: () {
-                    Provider.of<IVideoPlayer<YoutubePlayerController>>(context,
-                        listen: false);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
+              child: Transform.scale(
+                alignment: Alignment.center,
+                scale: scale,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: isPortrait ? 0 : 50,
+                    bottom: isPortrait ? SizesEnum.md.getSize : 50,
+                  ),
+                  child: InkWell(
+                    onTap: () {
+                      Provider.of<IVideoPlayer<YoutubePlayerController>>(
+                          context,
+                          listen: false);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
                           builder: (context) => const Scaffold(),
-                          settings: RouteSettings(arguments: selectedMovie)),
-                    );
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(SizesEnum.md.getSize),
-                    child: Hero(
-                      tag: "movies-picture-${selectedMovie.id}",
-                      child: NetworkMovieImageWidget(
-                        movieImage: selectedMovie.imagePath,
+                          settings: RouteSettings(arguments: selectedMovie),
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(SizesEnum.md.getSize),
+                      child: Hero(
+                        tag: "movies-picture-${selectedMovie.id}",
+                        child: NetworkMovieImageWidget(
+                          movieImage: selectedMovie.imagePath,
+                        ),
                       ),
                     ),
                   ),
@@ -61,7 +71,17 @@ class MoviesCarouselWidget extends StatelessWidget {
               ),
             );
           },
-        )
+        ),
+        if (moviesCarouselCtrl.hasClients &&
+            currentPage.round() != moviesCarouselCtrl.page)
+          Positioned(
+            left: context.getWidth / 2 - 125,
+            bottom: context.getHeight / 2 - 50,
+            child: Lottie.asset(
+              AssetsPathConst.animationPopcorn,
+              width: 250,
+            ),
+          ),
       ],
     );
   }
