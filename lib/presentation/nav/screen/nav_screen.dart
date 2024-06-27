@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/services/firebase/firebase_store/firebase_store_service.dart';
+import 'package:movies_app/data/models/favorite_movie_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/factories/video_player_factory.dart';
@@ -21,7 +22,7 @@ class NavScreen extends StatelessWidget {
         makeMoviesWidgetController,
         StreamProvider.value(
           value: FirebaseStoreService().getFavoriteMovies,
-          initialData: null,
+          initialData: const <FavoriteMovieModel>[],
         )
       ],
       child: const NavScreenWidget(),

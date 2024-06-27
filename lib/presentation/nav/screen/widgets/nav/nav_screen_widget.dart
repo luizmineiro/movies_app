@@ -12,6 +12,7 @@ import 'package:movies_app/presentation/nav/controllers/nav_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
+import '../favorites_widget/favorite_widget.dart';
 import '../movies_widget/movies_widget.dart';
 import 'nav_button_widget.dart';
 
@@ -89,9 +90,7 @@ class _NavScreenWidgetState extends State<NavScreenWidget>
                   child: MoviesWidget(),
                 ),
                 if (navCtrl.navIndex == 1)
-                  Center(
-                    child: TextWidget.normal("Favorite Movies"),
-                  )
+                  const FavoritesWidget()
               ],
             ),
           ),
@@ -116,13 +115,15 @@ class _NavScreenWidgetState extends State<NavScreenWidget>
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   NavButtonWidget(
-                      icon: Icons.movie,
-                      onTap: () => navCtrl.selectNavIndex(0),
-                      isSelected: navCtrl.navIndex == 0),
+                    icon: Icons.movie,
+                    onTap: () => navCtrl.selectNavIndex(0),
+                    isSelected: navCtrl.navIndex == 0,
+                  ),
                   NavButtonWidget(
-                      icon: Icons.favorite,
-                      onTap: () => navCtrl.selectNavIndex(1),
-                      isSelected: navCtrl.navIndex == 1),
+                    icon: Icons.favorite,
+                    onTap: () => navCtrl.selectNavIndex(1),
+                    isSelected: navCtrl.navIndex == 1,
+                  ),
                 ],
               ),
             ),
