@@ -5,6 +5,8 @@ import 'package:movies_app/core/enums/sized_enum.dart';
 import 'package:movies_app/core/extensions/ui/media_query_extesion.dart';
 import 'package:movies_app/core/extensions/ui/sizes_extension.dart';
 import 'package:movies_app/core/services/video_player/i_video_player.dart';
+import 'package:movies_app/presentation/movie_details/screen/movie_details.dart';
+import 'package:movies_app/presentation/movie_details/widgets/movie_details_screen_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
@@ -52,7 +54,7 @@ class MoviesCarouselWidget extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Scaffold(),
+                          builder: (context) => const MovieDetails(),
                           settings: RouteSettings(arguments: selectedMovie),
                         ),
                       );

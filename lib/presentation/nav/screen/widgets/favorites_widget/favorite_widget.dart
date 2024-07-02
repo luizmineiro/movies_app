@@ -47,16 +47,18 @@ class FavoritesWidget extends StatelessWidget {
                               onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        ChangeNotifierProvider<
-                                            NavController>.value(
-                                          value: navCtrl,
-                                          child: const MovieDetails(),
-                                        ),
-                                    settings: RouteSettings(
-                                        arguments: favoriteMovie)),
+                                  builder: (context) => ChangeNotifierProvider<
+                                      NavController>.value(
+                                    value: navCtrl,
+                                    child: const MovieDetails(),
+                                  ),
+                                  settings: RouteSettings(
+                                    arguments: favoriteMovie,
+                                  ),
+                                ),
                               ),
                               child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   SizedBox(
                                     width: context.getWidth * 0.35,
@@ -67,6 +69,7 @@ class FavoritesWidget extends StatelessWidget {
                                   const SizedBoxWidget.md(),
                                   Expanded(
                                     child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         TextWidget.normal(
                                           favoriteMovie.title,
