@@ -6,6 +6,7 @@ import 'package:movies_app/core/widgets/sized_box/sized_box_widget.dart';
 import 'package:movies_app/core/widgets/texts/text_widget.dart';
 import 'package:movies_app/presentation/login/screen/login_screen.dart';
 import 'package:lottie/lottie.dart';
+import 'package:movies_app/presentation/nav/screen/nav_screen.dart';
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({super.key});
@@ -25,7 +26,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
         if (user == null) {
           handleNavigation(context, LoginScreen.routeName, clear: true);
         } else {
-          handleNavigation(context, LoginScreen.routeName, clear: true);
+          handleNavigation(context, NavScreen.routeName, clear: true);
         }
       }
     });

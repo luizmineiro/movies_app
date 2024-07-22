@@ -66,11 +66,21 @@ class _MovieDetailsScreenWidgetState extends State<MovieDetailsScreenWidget>
                 ),
                 collapsedHeight: context.getHeight,
                 stretch: true,
+                leading: InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                    size: 38,
+                  ),
+                ),
               ),
             ],
           ),
           Positioned(
-            top: context.getWidth / 2.5,
+            top: context.getHeight / 2.5,
             width: context.getWidth,
             child: Container(
               decoration: BoxDecoration(
